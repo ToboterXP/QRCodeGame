@@ -51,12 +51,13 @@ void talker(Object * obj) {
 //sets a progress flag when collected
 void key(Object * obj) {
 	//draw('f', FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY, 0b11110000, obj->x, obj->y);
+	if (progress & (1 << obj->data[0])) objectChars[1] = ' ';
+	else objectChars[1] = 'f';
+
 	if (objCollide) {
-		progress |= 1 << obj->data[0];
+		progress |= (1 << obj->data[0]);
 	}
-	if (progress & (1 << obj->data[0])) {
-		obj->active = 0;
-	}
+
 }
 
 BYTE door_targets[12] = {10,0,0, 0,11,0, 0,0,9, 8,0,4};
