@@ -20,10 +20,12 @@ SHORT progress = 1; //stores progress in game as bitflags
 //bit 7: win item
 
 
-char texts[2][30] = {
+char texts[4][20] = {
 	//"Oh no, I can't reach the key!\n",
-	"The true secret is 1324!     \n",
-	"You Found and Won The Game!  \n"
+	"The secret is 1324!\n",
+	"You Won The Game!  \n",
+	"Oh No, a lost key! \n",
+	"I'm the castle king\n"
 };
 
 
@@ -39,8 +41,8 @@ WORD objectColors[] = {
 void talker(Object * obj) {
 	//draw('@', FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY, 0b11110000, obj->x, obj->y);
 	if (objCollide && obj->data[1] == 0) {
-		WriteConsole(stdout, &texts[obj->data[0]], 30, NULL, NULL);
-		if (obj->data[0]) {
+		WriteConsole(stdout, &texts[obj->data[0]], 20, NULL, NULL);
+		if (obj->data[0] == 1) {
 			Sleep(5000);
 			ExitProcess(0);
 		}

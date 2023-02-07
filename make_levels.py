@@ -98,7 +98,7 @@ def make_room10():
     level += tiles(RIVER, 11,0, 11,5)
     level += tiles(STONE, 5,10, 5,15)
 
-    #level += l_object(TALKER, 8,6, 0)
+    level += l_object(TALKER, 8,6, 2)
     level += l_object(KEY, 6,4, 1)
     return level + end_level()
 
@@ -116,6 +116,8 @@ def make_room12():
     level += tiles(GRASS, 4,0, 14,15)
     level += tiles(WALL, 3,0, 3,15)
     level += tiles(STONE, 0,0, 2,15)
+
+    level += l_object(TALKER, 1,6, 3)
     return level + end_level()
 
 def make_room20():
